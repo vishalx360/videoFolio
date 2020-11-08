@@ -1,8 +1,10 @@
 from linkedin import *
 from github import *
 from flask import Flask, abort
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('dataservice/linkedin/<handle>')
 def get_linkedin(handle):
