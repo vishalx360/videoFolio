@@ -1,19 +1,23 @@
-const base_url = "http://127.0.0.1:5000"
+const base_url = "http://127.0.0.1:5000/dataservice"
 
 
 function showData(data){
     console.log("got final data")
     console.log(data)
+    $("#resultwait").hide()
     document.getElementById("thisisresult").innerText = JSON.stringify(data);
 }
 
 $(document).ready(function(){
 
+    
+    $("#resultwait").hide()
     console.log("Loaded")
     data_count = 0
     finaldata = {}
 
     $("#dataInputForm").on('submit',function(e){
+        $("#resultwait").show()
         e.preventDefault()
         const github_handle = $("#github_handle").val()
         const linkedin_handle = $("#linkedin_handle").val()

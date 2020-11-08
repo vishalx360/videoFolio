@@ -6,7 +6,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route('dataservice/linkedin/<handle>')
+@app.route('/dataservice/linkedin/<handle>')
 def get_linkedin(handle):
     print("Started for " + handle)
     profile =  get_profile(handle)
@@ -18,7 +18,7 @@ def get_linkedin(handle):
     print("processed done")
     return li_data
 
-@app.route('dataservice/github/<handle>')
+@app.route('/dataservice/github/<handle>')
 def get_github(handle):
     print("Started for " + handle)
     profile =  get_github_data(handle)

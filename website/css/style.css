@@ -20,3 +20,11 @@ body{
 .title h3{
     color: #777777;
 }
+
+
+#dataInputForm input{
+    border: 1px solid #777777;
+    border-radius: 5px;
+    background-color: #c1e1f0;
+}
+
