@@ -1,0 +1,159 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+				$(document).ready(function() {
+					$('#material-tabs').each(function() {
+
+							var $active, $content, $links = $(this).find('a');
+
+							$active = $($links[0]);
+							$active.addClass('active');
+
+							$content = $($active[0].hash);
+
+							$links.not($active).each(function() {
+									$(this.hash).hide();
+							});
+
+							$(this).on('click', 'a', function(e) {
+
+									$active.removeClass('active');
+									$content.hide();
+
+									$active = $(this);
+									$content = $(this.hash);
+
+									$active.addClass('active');
+									$content.show();
+
+									e.preventDefault();
+							});
+					});
+			});
+		</script>
+	</head>
+	<body style="background-color: #f0e7e7">
+		
+		<div class="img-logo">
+			<img src="img/logo.png">
+		</div>
+		<div class=" header-img">
+			<img src="img/img1.png">
+		</div>
+		<div class="container text">
+			<h1 style="font-weight:bold;font-size:40px;">Generate Video-Resume</h1>
+			<div style="color:darkgray;font-weight: bold;font-size:30px;">just from username</div>
+		</div>
+
+<!-- end container -->
+		<section style=" height: 760px;">
+
+	        <div class="container">
+	            <div class="row">
+	                <div class="board">
+	                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+	                    <div class="board-inner">
+	                        <ul class="nav nav-tabs" id="myTab">
+	                            <div class="liner"></div>
+	                           	<li class="active" style="margin-left: 20%;">
+	                                <a href="#profile" data-toggle="tab" title="profile">
+	                                    <span class="round-tabs two">
+	                         			<i style="font-size:70px;" class="fa fa-github"></i>
+	                     				</span>
+	                                </a>
+	                            </li>
+	                            <li>
+	                                <a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+	                                    <span class="round-tabs three">
+	                          				<i style="font-size:58px;" class="fa fa-linkedin"></i>
+	                     				</span>
+	                     			</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+						<div class="tab-content ">
+	                      	<div class="tab-pane fade in active" style="color:black;text-align: center;" id="profile">
+	                            <p class="narrow text-center" style="color:black;text-align: center;">
+	                            	<h2 style="color:black;text-align: center;">Build Resume Using Github
+	                            	</h2>
+	                            	<br>
+	                            	<div class="alert alert-success" style="display: none;" role='alert' id="alert"></div>
+	                            	<div id="text">
+	                            	
+		                            	<input type="text" id="username" name="username"style="color:black;text-align: center;" placeholder="@username" class="input-lg"><br>
+	                            	</div>
+	                            	<br>
+
+	                            	<div id="btun">
+	                            		<button class="btn btn-success" id="github" onclick="github()">Generate</button>
+	                        		</div>
+	                            </p>
+	                        </div>
+	                        <div class="tab-pane fade" id="messages" style="text-align: center;">
+	                            <p class="narrow text-center" style="color:black;text-align: center;">
+	                            	<h2 style="color:black;text-align: center;">Build Resume Using Linkedin
+	                            	</h2>
+	                            	<br>
+	                            	<div class="alert alert-success" style="display: none;" role='alert' id="alert"></div>
+	                            	<div id="text">
+	                            	
+		                            	<input type="text" id="profilename" name="username"style="color:black;text-align: center;" placeholder="@username" class="input-lg"><br>
+	                            	</div>
+	                            	
+	                            	<br>
+	                            	<div id="btun">
+	                            		<button class="btn btn-success" id="linkedin" onclick="linkedin()">Generate</button>
+	                        		</div>
+	                            </p>
+	                        </div>
+	                       
+	                        <div class="clearfix"></div>
+	                    </div>
+					</div>
+	            </div>
+	        </div>
+    	</section>
+        <script type="text/javascript">
+        	function github(){
+
+        		document.getElementById("username").style.display="none";
+        		
+        		document.getElementById('text').innerHTML=' <input type="text" id="email" name="email"style="color:black;text-align: center;" placeholder="Email Id" class="input-lg"><br>';
+        		document.getElementById("github").style.display="none";
+        		document.getElementById('btun').innerHTML+='<button class="btn btn-success" id="notify" onclick="notify()">Submit</button>';
+
+
+        	}
+        	function linkedin(){
+            document.getElementById("profilename").style.display="none";
+            
+            // document.getElementById('text').innerHTML=' <input type="text" id="email" name="email"style="color:black;text-align: center;" placeholder="Email Id" class="input-lg"><br>';
+            document.getElementById("linkedin").style.display="none";
+            document.getElementById('btun').innerHTML+='<button class="btn btn-success" id="notify" onclick="notify()">Submit</button>';
+            document.getElementById('render').style.display="block";
+          }
+        	function notify(){
+        		document.getElementById('text').style.display="none";
+        		document.getElementById('notify').style.display="none";
+        		document.getElementById('alert').style.display="block";
+        		document.getElementById('alert').innerHTML="Thank you for building your resume with VideoFolio we will email your resume link soon!!";
+
+        	}
+        </script>
+   
+    	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	</body>
+<html>
+
+
+
+
