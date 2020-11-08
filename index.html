@@ -52,8 +52,6 @@
 			<h1 style="font-weight:bold;font-size:40px;">Generate Video-Resume</h1>
 			<div style="color:darkgray;font-weight: bold;font-size:30px;">just from username</div>
 		</div>
-
-<!-- end container -->
 		<section style=" height: 760px;">
 
 	        <div class="container">
@@ -102,14 +100,55 @@
 	                            	<h2 style="color:black;text-align: center;">Build Resume Using Linkedin
 	                            	</h2>
 	                            	<br>
-	                            	<div class="alert alert-success" style="display: none;" role='alert' id="alert"></div>
+	                            	<div class="alert alert-success" style="display: none;" role='alert' id="alertin"></div>
 	                            	<div id="text">
 	                            	
 		                            	<input type="text" id="profilename" name="username"style="color:black;text-align: center;" placeholder="@username" class="input-lg"><br>
 	                            	</div>
-	                            	
+	                            	<form>
+	                            		<div class="row" id="render" style="display: none;">
+	                            			<div class="col-md-6">
+
+										  		<div class="form-group">
+										    		<label for="exampleInputEmail1">Email address</label>
+										    		<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+										    		
+										  		</div>
+										  		<div class="form-group">
+										    		<label for="exampleInputPassword1">Education</label>
+										    		<input type="text" class="form-control" id="education" placeholder="Education">
+										  		</div>
+										  		<div class="form-group">
+										    		<label for="exampleInputPassword1">University/School name</label>
+										    		<input type="text" class="form-control" id="school" placeholder="University/scholl name">
+										  		</div>
+										  		<div class="form-group">
+										    		<label for="exampleInputPassword1">Summary</label>
+										    		<textarea class="form-control" id="summary" placeholder="summary"></textarea> 
+										  		</div>
+										  		
+										  	</div>
+										  	<div class="col-md-6">
+										  		<div id="work_exp">
+											  		<!-- <div class="form-group">
+											    		<label for="exampleInputEmail1">Company Name</label>
+											    		<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="company name">
+											    		
+											  		</div>
+											  		<div class="form-group">
+											    		<label for="exampleInputPassword1">Position</label>
+											    		<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Position">
+											  		</div> -->
+											  	</div>
+										  		
+										  	</div>
+									  	</div>
+									</form>
 	                            	<br>
-	                            	<div id="btun">
+	                            	<div class="loading" style="display: none;">
+  
+									</div>
+	                            	<div id="btun-in">
 	                            		<button class="btn btn-success" id="linkedin" onclick="linkedin()">Generate</button>
 	                        		</div>
 	                            </p>
@@ -132,19 +171,57 @@
 
 
         	}
+        	var text;
+        	var obj;
         	function linkedin(){
+
+        	 text='{"education":[{"course":"Bachelor of Technology - BTech - Computer Engineering","description":null, "end_date":2021,"institute":"Dharmsinh Desai University","start_date":2017}],"headline":"Python  NodeJs  DataScience || Startups & Businesses","location":"Surat, Gujarat, India","summary":"For me, technology is a tool to make the world better, safer and more accessible. I like to develop softwares as a solution to problems. I am an experiment-and-experience person. I strongly believe everyone has a world-changing-idea, and I want to turn their ideas in reality through my technical and interpersonal skills.Highly interested to work in a fast-paced startup environment in fields backend Development or data science.Ready for role in areas other than my expertise. Good at learning new skills and technologies. ", "work_exp":[{ "company":"GirlscriptSurat","end_date":0,"location":"Surat, Gujarat","start_date":2020,"title":"Mentoring Team Member"},{"company":"Computer Society of India","end_date":2020,"location":null,"start_date":2019,"title":"President"},{"company":"Knowledge Foundry Business Solutions","end_date":2020,"location":"Bengaluru, Karnataka","start_date":2020,"title":"Software Engineering Intern"},{"company":"Shutterbugs DDU","end_date":2020,"location":null,"start_date":2019,"title":"Commitee Head, Content Writing & Social Media"},{"company":"HR Digital Marketing","end_date":2019,"location":"Nadiad","start_date":2019,"title":"Lead Web Developer"}]}';
+        	obj=JSON.parse(text)
+        	var i=0;
+        	document.getElementById('education').value=obj.education[0].course
+        	document.getElementById('summary').value=obj.summary
+        	document.getElementById('school').value=obj.education[0].institute
+        	for(i=0;i<obj.work_exp.length;i++){
+        		var id="company"+i
+        		document.getElementById('work_exp').innerHTML+="<div class='form-group'><label for=exampleInputEmail1>Company Name</label><input type='text' class='form-control company' id="+id +"\"   aria-describedby='emailHelp' placeholder='company name' value="+"\""+obj.work_exp[i].company+"\""+"</div><div class='form-group'><label for='exampleInputPassword1'>Position</label><input type='text' class='form-control position' id='exampleInputPassword1' placeholder='Position' value="+"\""+obj.work_exp[i].title+"\""+"</div>"
+        		
+        		
+        	}
+        	
             document.getElementById("profilename").style.display="none";
             
             // document.getElementById('text').innerHTML=' <input type="text" id="email" name="email"style="color:black;text-align: center;" placeholder="Email Id" class="input-lg"><br>';
             document.getElementById("linkedin").style.display="none";
-            document.getElementById('btun').innerHTML+='<button class="btn btn-success" id="notify" onclick="notify()">Submit</button>';
+            document.getElementById('btun-in').innerHTML='<button class="btn btn-success" id="notify" onclick="notify_in()">Submit</button>';
             document.getElementById('render').style.display="block";
           }
-        	function notify(){
+        	function notify_in(){
+        		var data=document.getElementsByClassName('company');
+        		var position=document.getElementsByClassName('position');
+        		var summary=document.getElementById('summary')
+        		var edu=document.getElementById('education')
+        		var school=document.getElementById('school')
+        		var email=document.getElementById('email')
+        		var i=0;
+        		obj.education[0].course=edu.value;
+        		obj.education[0].institute=school.value
+        		obj.summary=summary.value
+        		
+        		for(i=0;i<data.length;i++){
+        			data[i].style.display="none"
+        			obj.work_exp[i].company=data[i].value;
+        		}
+        		for(i=0;i<position.length;i++){
+        			data[i].style.display="none"
+        			obj.work_exp[i].title=position[i].value;
+
+        		}
+        		document.getElementById('render').style.display="none";
+        		console.log(obj.work_exp[0].company)
         		document.getElementById('text').style.display="none";
         		document.getElementById('notify').style.display="none";
-        		document.getElementById('alert').style.display="block";
-        		document.getElementById('alert').innerHTML="Thank you for building your resume with VideoFolio we will email your resume link soon!!";
+        		document.getElementById('alertin').style.display="block";
+        		document.getElementById('alertin').innerHTML="Thank you for building your resume with VideoFolio we will email your resume link soon!!";
 
         	}
         </script>
