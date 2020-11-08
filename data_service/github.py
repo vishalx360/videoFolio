@@ -17,17 +17,17 @@ def get_github_data(username):
     language=[]
     contributed_repo=[]
     popular_contributed_repo={}
-    url_for_api='https://api.github.com/users/'+username+'?access_token=7d5bfe7c15f4f7a27341f8372b28ff84ec5e089f'
+    url_for_api='https://api.github.com/users/'+username+'?access_token=948c9e2093369bb9f3af734dd18d1fd7c2a91e2e'
     date_repo={}
     ## --- Get User data from username ---- ##
-    data=requests.get(url_for_api )
+    data=requests.get(url_for_api)
     data=data.text
     data=json.loads(data)
 
     # print(data)
     ## --- Get repository data from repo_url ---- ##
     repo_url=data['repos_url']
-    repo_data=requests.get(repo_url+'?access_token=7d5bfe7c15f4f7a27341f8372b28ff84ec5e089f')
+    repo_data=requests.get(repo_url+'?access_token=948c9e2093369bb9f3af734dd18d1fd7c2a91e2e')
     repo_data=repo_data.text
     repo_data=json.loads(repo_data)
     # print(repo_data[0]['url'])
@@ -43,12 +43,12 @@ def get_github_data(username):
         date=date[0]
         date_repo.__setitem__(date,url)
 
-        url_data=requests.get(url+'?access_token=7d5bfe7c15f4f7a27341f8372b28ff84ec5e089f')
+        url_data=requests.get(url+'?access_token=948c9e2093369bb9f3af734dd18d1fd7c2a91e2e')
         url_data=url_data.text
         url_data=json.loads(url_data)
         
         ## ---- Get Star of particular repository ---- ##
-        star_url=repo_data[i]['stargazers_url']+'?access_token=7d5bfe7c15f4f7a27341f8372b28ff84ec5e089f'
+        star_url=repo_data[i]['stargazers_url']+'?access_token=948c9e2093369bb9f3af734dd18d1fd7c2a91e2e'
         star_data=requests.get(star_url)
         star_data=star_data.text
         star_data=json.loads(star_data)
@@ -105,4 +105,4 @@ def get_github_data(username):
         data_dict['popular_repo'] = popular_repo
 
     return data_dict
-    
+
