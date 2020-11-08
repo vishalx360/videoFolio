@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-color: rgb(22, 22, 22);
+    }
+    
+    .container {
+        width: 100vw;
+        max-width: 1080px;
+        max-height: 720px;
+        padding: 10px;
+    }
+    
+    canvas {
+        border: 1px solid rgb(255, 255, 255);
+        background: white;
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<!-- <body> -->
+<!-- <div class="container">
+
+        <canvas id="myCanvas">
+
+        </canvas>
+    </div> -->
+
+
+<body onload="init();">
+    <div class="container">
+        <canvas id="demoCanvas">
+
+        </canvas>
+    </div>
+
+    <script src="easeljs.js"></script>
+    <script src="easeApp.js"></script>
+</body>
+
+</html>
