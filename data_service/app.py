@@ -1,4 +1,4 @@
-# from linkedin import *
+from linkedin import *
 from github import *
 from flask import Flask, abort
 
@@ -16,13 +16,12 @@ def get_linkedin(handle):
     print("processed done")
     return li_data
 
-@app.route('/')
-def health():
-    return "healthy"
-
-
 @app.route('/github/<handle>')
 def get_github(handle):
     print("Started for " + handle)
     profile =  get_github_data(handle)
     return profile
+
+@app.route('/')
+def health():
+    return "healthy"
