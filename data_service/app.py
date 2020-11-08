@@ -4,7 +4,7 @@ from flask import Flask, abort
 
 app = Flask(__name__)
 
-@app.route('/linkedin/<handle>')
+@app.route('dataservice/linkedin/<handle>')
 def get_linkedin(handle):
     print("Started for " + handle)
     profile =  get_profile(handle)
@@ -16,7 +16,7 @@ def get_linkedin(handle):
     print("processed done")
     return li_data
 
-@app.route('/github/<handle>')
+@app.route('dataservice/github/<handle>')
 def get_github(handle):
     print("Started for " + handle)
     profile =  get_github_data(handle)
