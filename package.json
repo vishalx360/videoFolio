@@ -1,11 +1,10 @@
 {
   "name": "videofolio",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "Generates video based resume of given github/linked-in username",
   "main": "index.js",
   "scripts": {
-    "worker": "node worker/worker.js",
-    "worker_dev": "nodemon worker/worker.js",
+    "dev": "nodemon index.js",
     "start": "node index.js"
   },
   "repository": {
@@ -20,8 +19,11 @@
   },
   "homepage": "https://github.com/vishalx360/videofolio#readme",
   "dependencies": {
+    "canvas": "^2.6.1",
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.16",
+    "videoshow": "^0.1.12"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
