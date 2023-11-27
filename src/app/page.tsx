@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import HeroImage from "@/../public/Hero.svg";
 import Converter from "@/_component/Converter";
+import TeamSection from "@/_component/TeamSection";
+import { AlertTriangle } from "lucide-react";
 const features = [
     {
         number: 1,
@@ -44,6 +46,14 @@ const LandingPage = () => {
                     <h1 className="text-3xl font-bold text-center mb-5">Elevate Your Resume with Dynamic Video Portfolios</h1>
                     <div className="text-lg text-gray-900 max-w-3xl">
                         <p className="text-lg text-center">Our cutting-edge software empowers you to transform your traditional resume into a dynamic video portfolio effortlessly.</p>
+                    </div>
+                    <div className="flex items-center w-full justify-center  my-4 ">
+                        <p className="flex items-center w-fit justify-center   gap-3 bg-orange-100 px-5 py-2 rounded-xl text-sm">
+                            <AlertTriangle />
+                            <span>
+                                This is an alpha release, things may break.
+                            </span>
+                        </p>
                     </div>
                     <Image className="mt-20 " alt="hero image" height={200} width={800} src={HeroImage}></Image>
                     <div>
@@ -101,13 +111,10 @@ const LandingPage = () => {
                         </li>
                     </ul>
                 </section>
-                {/* <section className="mt-16">
+                <section className="">
 
-                    <h2 className="text-2xl font-bold text-center">Team</h2>
-                    <div className="flex  items-center gap-10">
-
-                    </div>
-                </section> */}
+                    <TeamSection />
+                </section>
             </div>
         </main>
     );
