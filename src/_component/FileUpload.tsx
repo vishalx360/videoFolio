@@ -7,7 +7,7 @@ import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FaFile } from "react-icons/fa";
 
-const FileUpload = ({ onFileUpload }: { onFileUpload: (file: File) => void }) => {
+const FileUpload = ({ onFileUpload }: { onFileUpload: (file: Blob) => void }) => {
     const { toast } = useToast()
     const [isHovered, setIsHovered] = useState(false);
     const onDrop = useCallback((acceptedFiles: any) => {

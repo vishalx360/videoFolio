@@ -42,10 +42,10 @@ const LandingPage = () => {
     return (
         <main className="container mx-auto px-10 md:px-4 py-16">
             <div className="flex flex-col items-center justify-center min-h-screen">
-                <section className="min-h-[90vh]">
-                    <h1 className="text-3xl font-bold text-center mb-5">Elevate Your Resume with Dynamic Video Portfolios</h1>
+                <section className="flex flex-col items-center justify-center min-h-[90vh]">
+                    <h1 className="text-3xl font-bold mb-5">Elevate Your Resume with Dynamic Video Portfolios</h1>
                     <div className="text-lg text-gray-900 max-w-3xl">
-                        <p className="text-lg text-center">Our cutting-edge software empowers you to transform your traditional resume into a dynamic video portfolio effortlessly.</p>
+                        <p className="text-lg">Our cutting-edge software empowers you to transform your traditional resume into a dynamic video portfolio effortlessly.</p>
                     </div>
                     <div className="flex items-center w-full justify-center  my-4 ">
                         <p className="flex items-center w-fit justify-center   gap-3 bg-orange-100 px-5 py-2 rounded-xl text-sm">
@@ -56,7 +56,7 @@ const LandingPage = () => {
                         </p>
                     </div>
                     <Image className="mt-20 " alt="hero image" height={200} width={800} src={HeroImage}></Image>
-                    <div>
+                    <div className="w-full flex-1">
                         <Converter />
                     </div>
                 </section>

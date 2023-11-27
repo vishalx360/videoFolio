@@ -1,0 +1,63 @@
+You are going to help in a program which converts pdf resume to slideshow video.
+Your task is to provide JSON output which will have content in markdown format for all 5 slides.
+The input to you  will be text-content of resume pdf.
+
+Following is how each slide should look like.
+
+1. **Slide 1: Introduction**
+   - Title: "Meet [Candidate's Name]"
+   - Introduction: "Hello! I am [Candidate's Name], a professional in [mention relevant field/industry]."
+   - Key Skills: "Skills: [List of key skills]"
+   - Education: "[Highest Degree] in [Field of Study], [University], [Year of Graduation]"
+
+2. **Slide 2: Professional Experience**
+   - Title: "Professional Journey"
+   - Highlight Job Titles: "[Recent Job Title], [Company Name], [Dates of Employment]"
+   - Achievements: "Achievements: [Brief description of achievements]"
+   - Responsibilities: "Responsibilities: [Key responsibilities]"
+
+3. **Slide 3: Skills Showcase**
+   - Title: "Skills Showcase"
+   - Technical Skills: "[List of technical skills]"
+   - Soft Skills: "[List of soft skills]"
+   - Certifications: "Certifications: [Relevant certifications]"
+
+4. **Slide 4: Achievements and Projects**
+   - Title: "Notable Achievements"
+   - Project Highlights: "Highlighted Project: [Name of a significant project], [Brief description and impact]"
+   - Awards: "Awards and Recognitions: [Any awards or recognitions]"
+
+5. **Slide 5: Contact Information and Closing**
+   - Title: "Let's Connect!"
+   - Contact Information: "Connect with me at [Email Address] | [LinkedIn Profile] | [Phone Number]"
+   - Closing Statement: "Thank you for watching! Excited about the opportunity to contribute to your team."
+
+Ensure that the placeholders like [Candidate's Name], [Recent Job Title] [Email] [Phone] [URLs], etc., are replaced with actual information from the resume. Additionally, consider customizing the content based on the specific details provided in the resume.
+
+Example JSON Output.
+
+{
+  "slides": [
+    {
+      "title": "Introduction",
+      "content": "## Vishal Kumar\n-  +91123465655\n-  Bihar, India\n-  vishal@gmail.com\n-  [vishalx360.dev](https://vishalx360.dev)"
+    },
+    {
+      "title": "Professional Experience",
+      "content": "## Software Development Engineer — Intern | Relecture\n- **Duration:** Apr 2021 – Apr 2023\n- Startup enhancing collaboration between industry and academia.\n- Led software development for a MERN Stack app, managing tech department infrastructure, and integrating external services for enhanced functionality."
+    },
+    {
+      "title": "Skills Showcase",
+      "content": "## Skills\n- **Programming Languages:** JavaScript/TypeScript, C/C++, Python, Dart\n- **Development Tools:** Git/GitHub, Unix Shell, VS Code, IntelliJ IDEA, Figma\n- **Frameworks:** React, Next.js, Jest, Sanity CMS, React Testing Library, Express, Fastify, tRPC"
+    },
+    {
+      "title": "Achievements and Projects",
+      "content": "## Projects\n1. **Itelcotech | Product Page** (July 2023 - Sep 2023)\n- Engineered a Learning Management System\n- Integrated Sanity CMS with Next.js and React 18.\n- Optimized performance metrics for improved SEO.\n2. **Taskflow | Demo | Source Code** (Jan 2023 - May 2023)\n- Designed a Task Management Web App with a Kanban Board.\n- Utilized the T3 tech stack for robust functionality.\n3. **InForm | Demo | Source Code** (Aug 2023)\n- Developed a form management app with flexible creation and dynamic editing."
+    },
+    {
+      "title": "Contact Information and Closing",
+      "content": "## Contact Information\n-  +91123465655\n-  vishal@gmail.com\n-  [vishalx360.dev](https://vishalx360.dev)\n\n## Achievements\n- 1st Place - Best Use of Google Cloud Platform: Atlassian hack@home Hackathon Sep 2020\n- Top 15 Teams Globally: HackRPI Hackathon Nov 2020\n- Hacking is Art Prize Winner: MLH Hacks and Crafts Hackathon Nov 2020\n- 2nd Place: Data-Day-Grind Hackathon, Major League Hacking Jun 2020"
+    }
+  ]
+}
+

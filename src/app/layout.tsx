@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "relative pt-10")}>
-        <nav className='fixed top-0 left-0 font-medium bg-black p-4 text-center w-full text-white'>
+        <nav className='fixed z-50 top-0 left-0 font-medium bg-black p-4 text-center w-full text-white'>
           videofolio (alpha)
         </nav>
         {children}
