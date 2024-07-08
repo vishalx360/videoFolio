@@ -1,7 +1,7 @@
 import { File } from 'buffer';
 import { NextRequest, NextResponse } from 'next/server'; // To handle the request and response
 import pdf from "pdf-parse";
-import { GetSlideData } from './palm';
+import { GetSlideData } from './gemini';
 import ExtractJSON from './JSONExtractor';
 
 
